@@ -1,0 +1,13 @@
+# Shared 520-D input training-mechanism control.
+output: outputs/anchor_raw_v2_dev
+targets: [B0F1, B1F3]
+repeats: [0]
+source_buildings: [0, 1]
+representations: [raw]
+anchor:
+  neighbors: 5
+  hidden: [256, 128, 64, 32]
+  rounds: 1000
+  inner_steps: 5
+  inner_lr: 0.01
+  outer_lr: 0.001

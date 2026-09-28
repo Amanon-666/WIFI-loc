@@ -1,0 +1,13 @@
+# Retain individual scans and learn a correction to the WKNN prior.
+output: outputs/anchor_scan_v2_dev
+targets: [B0F1, B1F3]
+repeats: [0]
+source_buildings: [0, 1]
+representations: [scan]
+anchor:
+  neighbors: 3
+  hidden: [64, 32]
+  rounds: 1000
+  inner_steps: 5
+  inner_lr: 0.01
+  outer_lr: 0.001
