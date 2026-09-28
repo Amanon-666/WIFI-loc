@@ -1,0 +1,56 @@
+# V1 fixed config; changes require a new recorded experiment configuration.
+protocol: UJI-FeMLoc-v1
+seed: 20260927
+data_path: /home/panyushuo/projects/panyushuo/UJIIndoorLoc/data/raw/UJIndoorLoc/trainingData.csv
+device: cuda:0
+torch_threads: 2
+profile: N
+task:
+  k: 10
+  scans_per_position: 3
+  query_fraction: 0.2
+  source_query_positions: 10
+  repeats: 5
+preprocess:
+  missing: 100
+  rssi_min: -110
+  rssi_max: 0
+  coordinate_scale: 100.0
+model:
+  encoder_hidden: [1024]
+  latent: 50
+  shared_hidden: [256, 128, 64]
+  representation: 32
+  mapper_hidden: [64, 32]
+  decoder_hidden: [1024]
+  mlp_hidden: [256, 256, 128, 128, 64, 32]
+  output: 2
+  xavier_gain: 1.0
+  leaky_relu_slope: 0.01
+  batchnorm_eps: 0.00001
+  batchnorm_momentum: 0.1
+adam:
+  betas: [0.9, 0.999]
+  eps: 0.00000001
+  weight_decay: 0.0
+ae:
+  steps: 200
+  source_batch_size: 32
+  lr: 0.0095
+meta:
+  rounds: 1000
+  inner_steps: 5
+  encoder_lr: 0.0095
+  shared_lr: 0.0005
+  mapper_lr: 0.0005
+  outer_lr: 0.001
+adapt:
+  steps: 500
+  checkpoints: [0, 5, 10, 20, 50, 100, 200, 500]
+baseline:
+  commit: f34f1bf4560109254887e2f04166dd61e0d9dae9
+  knn_neighbors: 3
+  knn_epsilon: 0.000001
+  mlp_lr: 0.001
+  t0_steps: 5000
+  t0_batch_size: 32
