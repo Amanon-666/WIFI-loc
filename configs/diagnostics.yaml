@@ -1,0 +1,7 @@
+output: outputs/diagnostics_v1
+source_replays: [T1_B0F1_e0, T2_B2F3_e0]
+source_rounds: 100
+representation_steps: [0, 500]
+ae_learning_rates: [0.0095, 0.001, 0.0001]
+ae_followup_lr: 0.0001
+ae_followup_steps: [200, 500, 1000, 2000]

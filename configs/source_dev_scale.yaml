@@ -1,0 +1,6 @@
+output: outputs/source_dev_scale
+source_manifest: outputs/manifests/T2_B2F3_e0.json
+development_manifest: outputs/manifests/T1_B1F3_e0.json
+variants:
+  outer_0p01: {lr: 0.0001, steps: 2000, outer_lr: 0.01}
+  outer_0p1: {lr: 0.0001, steps: 2000, outer_lr: 0.1}
